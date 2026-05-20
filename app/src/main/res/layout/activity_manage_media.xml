@@ -3,22 +3,37 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
     tools:context=".activities.ManageMedia">
 
-    <Button
-        android:id="@+id/manage_files_button"
-        style="@style/media_button"
-        android:layout_centerHorizontal="true"
-        android:layout_margin="12dp"
-        android:text="@string/manage_files_without_media"
-        android:textSize="13sp" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rec_media_manage"
+    <ImageView
+        android:id="@+id/media_background_image"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/manage_files_button"
-        android:layout_margin="20dp" />
+        android:alpha="0.25"
+        android:importantForAccessibility="no"
+        android:scaleType="centerCrop"
+        android:visibility="gone" />
 
+    <RelativeLayout
+        android:id="@+id/media_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/manage_files_button"
+            style="@style/media_button"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="12dp"
+            android:text="@string/manage_files_without_media"
+            android:textSize="13sp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rec_media_manage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/manage_files_button"
+            android:layout_margin="20dp" />
+
+    </RelativeLayout>
 </RelativeLayout>

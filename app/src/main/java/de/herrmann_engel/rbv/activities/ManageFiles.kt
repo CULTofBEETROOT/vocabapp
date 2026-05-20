@@ -1,8 +1,17 @@
 package de.herrmann_engel.rbv.activities
 
+import android.content.Intent
 import android.os.Bundle
+import android.view.View
+import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.content.res.AppCompatResources
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.updatePadding
 import androidx.documentfile.provider.DocumentFile
 import androidx.recyclerview.widget.LinearLayoutManager
+import de.herrmann_engel.rbv.Globals
+import de.herrmann_engel.rbv.R
 import de.herrmann_engel.rbv.adapters.AdapterFilesManage
 import de.herrmann_engel.rbv.databinding.ActivityManageFilesBinding
 import de.herrmann_engel.rbv.db.utils.DB_Helper_Get
@@ -13,6 +22,22 @@ class ManageFiles : FileTools() {
         super.onCreate(savedInstanceState)
         binding = ActivityManageFilesBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        val settings = getSharedPreferences(Globals.SETTINGS_NAME, MODE_PRIVATE)
+        if (settings.getBoolean("ui_bg_images", true)) {
+            binding.filesBackgroundImage.visibility = View.VISIBLE
+            binding.filesBackgroundImage.setImageDrawable(
+                AppCompatResources.getDrawable(
+                    this,
+                    R.drawable.bg_media
+                )
+            )
+        }
+        ViewCompat.setOnApplyWindowInsetsListener(binding.recFilesManage) { v, windowInsets ->
+            val insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.updatePadding(insets.left, insets.top, insets.right, insets.bottom)
+            WindowInsetsCompat.CONSUMED
+        }
+        enableEdgeToEdge()
     }
 
     override fun onResume() {
