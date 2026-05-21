@@ -2,8 +2,14 @@ package de.herrmann_engel.rbv.activities
 
 import android.app.Dialog
 import android.os.Bundle
+import android.view.View
 import android.view.WindowManager
+import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.appcompat.content.res.AppCompatResources
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.updatePadding
 import de.herrmann_engel.rbv.Globals
 import de.herrmann_engel.rbv.R
 import de.herrmann_engel.rbv.databinding.ActivitySettingsBinding
@@ -131,6 +137,7 @@ class Settings : FileTools() {
         binding.settingsUiBackgroundImages.setOnCheckedChangeListener { _, c: Boolean ->
             settingsEdit.putBoolean("ui_bg_images", c)
             settingsEdit.apply()
+            setBgImage(c, binding)
         }
         val uiFontSize = settings.getBoolean("ui_font_size", false)
         binding.settingsUiIncreaseFontSize.isChecked = uiFontSize
@@ -181,6 +188,27 @@ class Settings : FileTools() {
             settingsEdit.putBoolean("media_in_gallery", c)
             settingsEdit.apply()
             handleNoMediaFile()
+        }
+        setBgImage(settings.getBoolean("ui_bg_images", true), binding)
+        ViewCompat.setOnApplyWindowInsetsListener(binding.settingsContainer) { v, windowInsets ->
+            val insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.updatePadding(insets.left, insets.top, insets.right, insets.bottom)
+            WindowInsetsCompat.CONSUMED
+        }
+        enableEdgeToEdge()
+    }
+
+    private fun setBgImage(show: Boolean, binding: ActivitySettingsBinding) {
+        if (show) {
+            binding.settingsBackgroundImage.visibility = View.VISIBLE
+            binding.settingsBackgroundImage.setImageDrawable(
+                AppCompatResources.getDrawable(
+                    this,
+                    R.drawable.bg_settings
+                )
+            )
+        } else {
+            binding.settingsBackgroundImage.visibility = View.GONE
         }
     }
 
