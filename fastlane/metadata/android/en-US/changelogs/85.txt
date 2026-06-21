@@ -1,4 +1,5 @@
 Sort by mixed learning criteria.
 UI adjustments.
 Improved list loading.
+Update to Android SDK 37.
 Update dependencies.

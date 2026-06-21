@@ -2,11 +2,11 @@ plugins {
     id("com.android.application")
 }
 android {
-    compileSdk = 36
+    compileSdk = 37
     defaultConfig {
         applicationId = "de.herrmann_engel.rbv"
         minSdk = 25
-        targetSdk = 36
+        targetSdk = 37
         versionCode = 85
         versionName = "3.4.11"
         javaCompileOptions {
@@ -59,12 +59,12 @@ dependencies {
     val kotlinVersion = rootProject.extra.get("kotlinVersion") as String
     val roomVersion = "2.8.4"
     implementation("androidx.appcompat:appcompat:1.7.1")
-    implementation("androidx.core:core-ktx:1.18.0")
+    implementation("androidx.core:core-ktx:1.19.0")
     implementation("androidx.documentfile:documentfile:1.1.0")
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.10.0")
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.11.0")
     implementation("androidx.room:room-runtime:$roomVersion")
     annotationProcessor("androidx.room:room-compiler:$roomVersion")
-    implementation("com.google.android.material:material:1.13.0")
+    implementation("com.google.android.material:material:1.14.0")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.11.0")
     implementation("com.opencsv:opencsv:5.12.0")
@@ -72,7 +72,7 @@ dependencies {
     implementation("io.noties.markwon:linkify:4.6.2")
     implementation("me.saket:better-link-movement-method:2.2.0")
     implementation("com.vanniktech:emoji-twitter:0.24.1")
-    implementation("io.coil-kt.coil3:coil:3.4.0")
+    implementation("io.coil-kt.coil3:coil:3.5.0")
     implementation("com.github.rtugeek:colorseekbar:2.1.0")
     implementation("com.atlassian.commonmark:commonmark:0.13.0")
     //match Markwon version of commonmark
