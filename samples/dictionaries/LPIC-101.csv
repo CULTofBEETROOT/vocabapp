@@ -126,7 +126,7 @@
 "cards","8213","What command enables network time synchronization using timedatectl?",".","70","0","1786479228","**What command enables network time synchronization using timedatectl?** answer: timedatectl set-ntp true","0"
 "cards","8214","What command lists available timezones using timedatectl?",".","70","0","1786479228","**What command lists available timezones using timedatectl?** answer: timedatectl list-timezones","0"
 "cards","8215","What command shows the current status of wall-clock time and NTP synchronization?",".","70","0","1786479228","**What command shows the current status of wall-clock time and NTP synchronization?** answer: timedatectl status","0"
-"cards","8216","What command logs a custom message into the systemd journal logs?",".","70","0","1786479228","**What command logs a custom message into the systemd journal logs?** answer: logger "System maintenance complete","0"
+"cards","8216","What command logs a custom message into the systemd journal logs?",".","70","0","1786479228","**What command logs a custom message into the systemd journal logs?** answer: logger 'System maintenance complete'","0"
 "cards","8217","What command installs a local .deb package file?",".","70","0","1786479228","**What command installs a local .deb package file?** answer: dpkg -i","0"
 "cards","8218","What command removes an installed package while keeping its configuration files?",".","70","0","1786479228","**What command removes an installed package while keeping its configuration files?** answer: dpkg -r","0"
 "cards","8219","What command removes a package and purges its configuration files?",".","70","0","1786479228","**What command removes a package and purges its configuration files?** answer: dpkg -P","0"
